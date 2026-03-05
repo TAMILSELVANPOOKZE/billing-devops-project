@@ -18,7 +18,7 @@ steps:
     containerRegistry: 'ACR-ServiceConnection'
     repository: $(imageName)
     command: buildAndPush
-    Dockerfile: backend/billing-api/Dockerfile
+    Dockerfile: backend/billing-api/dockerfile
     tags: |
       latest
 
