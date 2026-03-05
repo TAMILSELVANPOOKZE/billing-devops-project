@@ -31,4 +31,4 @@ steps:
     kubernetesCluster: $(aksCluster)
     command: apply
     useConfigurationFile: true
-    configuration: k8s/deployment.yaml
+    configuration: k8s/
