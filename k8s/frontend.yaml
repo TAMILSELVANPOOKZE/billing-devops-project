@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: billing-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: billing-frontend
+  template:
+    metadata:
+      labels:
+        app: billing-frontend
+    spec:
+      containers:
+      - name: billing-frontend
+        image: billingacr123.azurecr.io/billing-frontend:latest
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: billing-frontend-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: billing-frontend
+  ports:
+  - port: 80
+    targetPort: 80

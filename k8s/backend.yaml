@@ -17,3 +17,16 @@ spec:
         image: billingacr123.azurecr.io/billing-api:latest
         ports:
         - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: billing-api-service
+spec:
+  type: ClusterIP
+  selector:
+    app: billing-api
+  ports:
+  - port: 80
+    targetPort: 8080
