@@ -16,4 +16,4 @@ spec:
       - name: billing-api
         image: billingacr123.azurecr.io/billing-api:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080

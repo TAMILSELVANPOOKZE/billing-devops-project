@@ -2,7 +2,6 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReact",
@@ -13,10 +12,10 @@ builder.Services.AddCors(options =>
                   .AllowAnyMethod();
         });
 });
+
 builder.Services.AddControllers();
-
-
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "billing-api", Version = "v1" });
@@ -24,19 +23,17 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// Configure middleware
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Enable swagger in all environments
+app.UseSwagger();
+app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+// Disable HTTPS redirect for AKS
+// app.UseHttpsRedirection();
 
 app.UseCors("AllowReact");
 
 app.UseAuthorization();
 
-app.MapControllers();   // ⭐ VERY IMPORTANT dd
+app.MapControllers();
 
 app.Run();
