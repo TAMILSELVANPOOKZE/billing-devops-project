@@ -29,7 +29,7 @@ steps:
     containerRegistry: 'ACR-ServiceConnection'
     repository: billing-frontend
     command: buildAndPush
-    Dockerfile: frontend/billing-ui/dockerfile
+    Dockerfile: frontend/billing-ui/Dockerfile
     tags: |
       latest
 
