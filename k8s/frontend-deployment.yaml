@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: billingacr123.azurecr.io/billing-frontend:latest
+        image: billingacr123.azurecr.io/billing-frontend:$(Build.BuildId)
         ports:
         - containerPort: 80

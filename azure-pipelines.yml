@@ -20,7 +20,7 @@ steps:
     command: buildAndPush
     Dockerfile: backend/billing-api/dockerfile
     tags: |
-      latest
+      $(Build.BuildId)
 
 # Build Frontend Image
 - task: Docker@2
@@ -31,7 +31,7 @@ steps:
     command: buildAndPush
     Dockerfile: frontend/billing-ui/Dockerfile
     tags: |
-      latest
+      $(Build.BuildId)
 
 # Deploy to AKS
 - task: Kubernetes@1

@@ -5,7 +5,7 @@ function App() {
   const [bills, setBills] = useState([]);
 
   useEffect(() => {
-    fetch("http://backend-service/api/billing")
+    fetch("http://backend-service:80/api/billing")
       .then(res => res.json())
       .then(data => setBills(data))
       .catch(err => console.error(err));
