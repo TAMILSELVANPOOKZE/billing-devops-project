@@ -30,6 +30,7 @@ steps:
     repository: billing-frontend
     command: buildAndPush
     Dockerfile: frontend/billing-ui/Dockerfile
+    buildContext: frontend/billing-ui
     tags: |
       $(Build.BuildId)
 
