@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: billing-api
+  name: backend-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: billing-api
+      app: backend
   template:
     metadata:
       labels:
-        app: billing-api
+        app: backend
     spec:
       containers:
-      - name: billing-api
-        image: billingacr123.azurecr.io/billing-api:latest
+      - name: backend
+        image: billingacr123.azurecr.io/backend:latest
         ports:
         - containerPort: 8080
